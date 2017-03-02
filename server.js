@@ -1,7 +1,8 @@
-let express = require('express');
-let app = express();
-let bodyParser = require('body-parser');
-let pizzapi = require('dominos');
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var pizzapi = require('dominos');
+var port = 8080;
 
 app.use(function(req, res, next) {
   console.log(req.method, req.url);
@@ -43,6 +44,6 @@ app.post('/data', function(req, res) {
 
 
 
-app.listen(8080, function() {
+app.listen(port, function() {
     console.log("server has started on port 8080");
 });
