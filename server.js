@@ -16,9 +16,7 @@ app.use(function(req, res, next) {
 
 app.use(express.static('./public'));
 
-
-
-// app.use(bodyParser.json());
+ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 
@@ -30,10 +28,17 @@ app.post('/data', function(req, res) {
         data.postalCode,
         'Delivery',
         function(storeData){
-            console.log(storeData.result.Stores);
+            var stores = storeData.result.Stores;
+            app.get('/pizza', function (req, res) {
+                res.json(stores[0]);
+            })
         }
     );
 });
+
+
+
+
 
 
 
