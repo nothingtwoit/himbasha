@@ -1,13 +1,13 @@
  document.getElementById("submitme").addEventListener("click", function(event) {
+        event.preventDefault()
+        let unCheckedPostalCode = document.getElementById('myform').zipcode.value;
+        var postalCode = parseInt(unCheckedPostalCode);
 
-    event.preventDefault();
-
-    var unCheckedPostalCode = document.getElementById('myform').zipcode.value;
-
-    let postalCode = parseInt(unCheckedPostalCode);
-
-          $.post('/data', {info: postalCode}, function (data) {
-              console.log(data);
-          });
-      });
+        if (Number.isInteger(postalCode) && postalCode.toString().length == 5) {
+            $.post('/data', {info: postalCode}, function (data) {
+            })
+        } else {
+            alert(NaN);
+        }
+    });
 
