@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded());
 
 app.post('/data', function(req, res) {
     var postalCode = req.body.info;
+    console.log(postalCode);
     pizzapi.Util.findNearbyStores(
         postalCode,
         'Delivery',
