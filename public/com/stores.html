@@ -4,7 +4,25 @@
     <meta charset="UTF-8">
     <title>Stores</title>
 </head>
-<body>
+<body onload="getStores()">
+<h3>Address's :</h3>
+<div id="div1">
+
+</div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js">
+    console.log("jq");
+</script>
+<script>
+    //sending code get method to get data
+    function getStores() {
+        $.get("http://localhost:8080/pizza", function(data, status){
+            console.log(data);
+            for (var x = 0; x < data.length; x++) {
+               document.write("<a>" + data[x].AddressDescription +  "</a>" + "<br>")
+            }
+        });
+    }
+</script>
 </html>
